@@ -79,7 +79,15 @@ class NewsItem extends StatelessWidget {
               return Image.asset('images/Image_Not_Found.jpeg');
             },
           ),
-          Text("Title: $title"),
+          Container(child: Row(
+            children: [
+              Text("Title:",style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),),
+              Text("$title")
+            ],
+          )
+          ),
           Text("Description: $description"),
           Text("Content: $content"),
           Text("Source: $name"),
