@@ -75,22 +75,54 @@ class NewsItem extends StatelessWidget {
                     ),
               );
             },
-            errorBuilder: (context, error, stackTrace) {
-              return Image.asset('images/Image_Not_Found.jpeg');
-            },
+            errorBuilder: (context, error, stackTrace) => Image.asset(
+                'images/Image_Not_Found.jpeg',
+                width: 20.0,
+                height: 3.0,
+                fit: BoxFit.fill,
+              ),
           ),
-          Container(child: Row(
+          Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text("Title:",style: TextStyle(
-                fontWeight: FontWeight.bold,
-              ),),
-              Text("$title")
-            ],
-          )
+              Container(
+                  child: Row(
+                children: [
+                  Text(
+                    "Title:",
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                  ),
+                  Text("$title")
+                ],
+              )),
+              Container(
+                  child:Row(
+                    children: [
+                    Text("Description:",
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+                    Text("$description")
+                  ],)),
+              Container(
+                  child: Row(
+                    children: [
+                      Text("Content:",
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15)),
+                      Text("$content")
+                    ],
+                  )),
+              Container(
+                child: Row(
+                  children: [
+                    Text("Source:",
+                        style:
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.bold)),
+                    Text('$name')
+                  ],
+                ),
+              )],
           ),
-          Text("Description: $description"),
-          Text("Content: $content"),
-          Text("Source: $name"),
+
         ]),
       ),
     );
